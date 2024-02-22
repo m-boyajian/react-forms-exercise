@@ -1,0 +1,15 @@
+input {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  border-radius: 6px; 
+}
+
+label {
+  margin: 6px;
+}
+
+button {
+  margin-bottom: 20px;
+  border-radius: 6px;
+  color: black;
+}
