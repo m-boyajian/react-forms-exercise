@@ -7,15 +7,30 @@ const BoxList = () => {
   console.log("BoxList rendered");
   const INITIAL_STATE= [];
   const [boxes, setBoxes] = useState(INITIAL_STATE);
+
   const addBox = (newBox) => {
     console.log("New Box:", newBox);
     setBoxes(boxes => [...boxes, { id: uuidv4(), ...newBox }]);
   }
+
+  const removeBox = (id) => {
+    setBoxes(boxes.filter(box => box.id !== id));
+  };
+
   return (
     <div>
       <NewBoxForm addBox={addBox} />
       <div>
-        {boxes.map(({ color, width, height }, index) => <Box key={index} color={color} width={width} height={height} />)}
+        {boxes.map(({ color, width, height, id }, index) => (
+          <Box 
+            key={id} 
+            color={color} 
+            width={width} 
+            height={height} 
+            id={id} 
+            removeBox={removeBox} 
+            />
+          ))}
       </div>
     </div>
   )
